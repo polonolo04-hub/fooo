@@ -1,0 +1,249 @@
+body {
+  background: #000000 url('https://avatars.mds.yandex.net/i?id=e14999b0c6774217315ad4965632e83c_l-5161119-images-thumbs&n=13') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* === ЕДИНЫЙ СТИЛЬ ЗАГОЛОВКОВ === */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #00aaff, #0066ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Главный заголовок */
+h1 {
+  font-size: 48px;
+  margin-top: 30px;
+}
+
+/* Второстепенные */
+h2, h3 {
+  font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 32px; }
+  h2, h3 { font-size: 22px; }
+}
+
+/* === Анимация появления секций === */
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInSection 1.5s ease forwards;
+}
+.intro { animation-delay: 0.2s; }
+.students { animation-delay: 0.4s; }
+.podcast { animation-delay: 0.6s; }
+.makala { animation-delay: 0.8s; }
+.roleplay-section { animation-delay: 1s; }
+
+@keyframes fadeInSection {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Карточки студентов === */
+.students {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.students-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  border-radius: 15px;
+  background: #f5f5f5;
+  position: relative;
+  padding: 1.8rem;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;
+  overflow: visible;
+}
+.card-details {
+  color: black;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  gap: 0.5em;
+  text-align: center;
+}
+.text-title {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.text-body {
+  font-size: 0.9em;
+  color: rgb(110, 110, 110);
+  line-height: 1.4;
+}
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 70%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #0000f4;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+.card:hover {
+  border-color: #0000ff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+.card:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+
+/* === Подкасты === */
+.podcast {
+  padding: 30px 0;
+  text-align: center;
+}
+.podcast-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.video-block {
+  flex: 0 1 400px;
+}
+.video-bg {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.3);
+}
+.video-bg video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* === Мақалалар и Рөлдік ойын рядом === */
+.makala-roleplay {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+/* === Макалалар === */
+.makala-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f8f8ff;
+  border: 2px solid #0000ff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  width: 350px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #0000ff;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.button:hover {
+  background: #0000ff;
+  color: white;
+  transform: scale(1.03);
+}
+.button .icon {
+  width: 40px;
+  height: 40px;
+}
+.fio {
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.makala-item:hover .fio {
+  opacity: 1;
+}
+
+/* === Рөлдік ойын === */
+.roleplay-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1.5s ease forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.roleplay-text {
+  max-width: 400px;
+  text-align: left;
+  font-family: 'Merriweather', serif;
+}
+.roleplay-video video {
+  width: 400px;
+  border-radius: 10px;
+}
+
+/* === Адаптив === */
+@media (max-width: 768px) {
+  .makala-roleplay {
+    flex-direction: column;
+    align-items: center;
+  }
+  .roleplay-text {
+    text-align: center;
+  }
+  .roleplay-video video {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+.scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
